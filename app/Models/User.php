@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'role',
+        'image'
     ];
 
     /**
@@ -40,5 +44,23 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+
     ];
+
+    //untuk mengecek apakah yang login adalah admin
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function pengaduan()
+    {
+        return $this->hasMany(Complaint::class);
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
 }
