@@ -1,9 +1,9 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="{{ url('dashboard') }}">E-Dumas</a>
+      <a href="{{ url('dashboard') }}">P-Mas</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="{{ url('dashboard') }}">ED</a>
+      <a href="{{ url('dashboard') }}">PM</a>
     </div>
 
     <ul class="sidebar-menu">
@@ -23,7 +23,7 @@
         <li class="dropdown {{ Request::is(['users*','masyarakats*']) ? 'active' : '' }}">
           <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Users</span></a>
           <ul class="dropdown-menu">
-            <li class="{{ Request::is('user*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('user.index') }}">Masyarakat</a></li>
+            <li class="{{ Request::is('user*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('user.index') }}">Pengguna</a></li>
           </ul>
         </li>
         <li class="{{ Request::is('report*') ? 'active' : '' }}">

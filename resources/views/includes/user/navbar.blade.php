@@ -27,13 +27,16 @@
 
                                 <a id="btn-dropdown" class="nav-link" href="#" role="button">
                                     @if(Auth::user()->image)
-                                        <img class="w-100 rounded-circle" style="height: 50px" src="{{Storage::url(Auth::user()->image)}}" alt="">
+                                        <img class=" rounded-circle" style="height: 50px" src="{{Storage::url(Auth::user()->image)}}" alt="">
                                     @else
-                                        <img class="w-100 rounded-circle" style="height: 50px" src="{{ asset('frontend/assets/img/nophoto.jpg') }}" alt="">
+                                        <img class=" rounded-circle" style="height: 50px" src="{{ asset('frontend/assets/img/nophoto.jpg') }}" alt="">
                                     @endif
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="btn-dropdown">
+                                    @if(Auth::user()->isAdmin())
+                                    <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
+                                    @endif
                                     <li><a class="dropdown-item" href="{{route('profile.index')}}">Profile</a></li>
                                     <li><a class="dropdown-item" href="{{route('pengaduanku')}}">Pengaduan Saya</a>
                                     </li>

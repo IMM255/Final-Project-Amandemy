@@ -12,10 +12,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // if(Auth::user()->role == 'masyarakat'){
-        //     return redirect()->route('home');
-        // }
-        // Data Pengaduan
         $statusCount = Complaint::select('status', DB::raw('COUNT(*) as total'))->groupBy('status')->pluck('total', 'status')->toArray();
 
         $labelsPie = array_keys($statusCount);
@@ -24,13 +20,12 @@ class DashboardController extends Controller
         // Count jumlah dari tiap tiap databases
         $count = [
             'all' => Complaint::all()->count('id'),
-            'masuk' => Complaint::where('status','masuk')->count(),
-            'proses' => Complaint::where('status','proses')->count(),
+            'belum_diproses' => Complaint::where('status','belum_diproses')->count(),
+            'sedang_diproses' => Complaint::where('status','sedang_diproses')->count(),
             'selesai' => Complaint::where('status','selesai')->count(),
             'ditolak' => Complaint::where('status','ditolak')->count(),
             'allUser' => User::all()->count('id'),
             'admin' => User::where('role','admin')->count(),
-            'petugas' => User::where('role','petugas')->count(),
             'masyarakat' => User::where('role','masyarakat')->count(),
         ];
 

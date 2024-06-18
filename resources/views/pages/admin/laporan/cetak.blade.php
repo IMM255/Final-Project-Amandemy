@@ -15,7 +15,7 @@
                     <th>Tanggal</th>
                     <th>Nama Pengadu</th>
                     <th>Isi Laporan</th>
-                    {{-- <th>Lokasi</th> --}}
+                    <th>Lokasi</th>
                     <th>Kategori</th>
                     <th>Status</th>
                 </tr>
@@ -27,7 +27,7 @@
                     <td>{{ $pengaduan->created_at}}</td>
                     <td>{{ $pengaduan->user->name }}</td>
                     <td>{{ $pengaduan->description }}</td>
-                    {{-- <td>{{ $pengaduan->lokasi }}</td> --}}
+                    <td>{{ $pengaduan->location }}</td>
                     <td>{{ $pengaduan->category->name_category }}</td>
                     <td>{{ $pengaduan->status }}</td>
                 </tr>

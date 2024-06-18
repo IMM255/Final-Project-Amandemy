@@ -11,18 +11,18 @@
                         <h4>Cari Berdasarkan Tanggal</h4>
                     </div>
                     <div class="card-body">
-                        <form action="" method="get">
+                        <form action="" method="GET">
                             @csrf
                             <div class="row">
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <input type="text" name="from" class="form-control" placeholder="Tanggal Awal" onfocusin="(this.type='date')"
+                                        <input  value="{{ request('from') }}"type="text" name="from" class="form-control" placeholder="Tanggal Awal" onfocusin="(this.type='date')"
                                         onfocusout="(this.type='text')">
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <input type="text" name="to" class="form-control" placeholder="Tanggal Akhir" onfocusin="(this.type='date')"
+                                        <input value="{{ request('to') }}" type="text" name="to" class="form-control" placeholder="Tanggal Akhir" onfocusin="(this.type='date')"
                                         onfocusout="(this.type='text')">
                                     </div>
                                 </div>

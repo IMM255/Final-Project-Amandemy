@@ -13,6 +13,10 @@
   <script src="{{url('backend/dist/assets/modules/owlcarousel2/dist/owl.carousel.min.js')}}"></script>
   <script src="{{url('backend/dist/assets/modules/summernote/summernote-bs4.js')}}"></script>
   <script src="{{url('backend/dist/assets/modules/chocolat/dist/js/jquery.chocolat.min.js')}}"></script>
+  <script src="{{url('backend/dist/assets/modules/datatables/datatables.min.js') }}"></script>
+  <script src="{{url('backend/dist/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{url('backend/dist/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js') }}"></script>
+
 
   <!-- Page Specific JS File -->
   <script src="{{url('backend/dist/assets/js/page/index.js')}}"></script>

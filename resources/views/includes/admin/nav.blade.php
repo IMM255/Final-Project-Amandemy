@@ -7,10 +7,17 @@
     </form>
     <ul class="navbar-nav navbar-right">
       <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-        <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-        <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+        @if(Auth::user()->image)
+                                        <img class=" rounded-circle mr-1" style="height: 30px" src="{{Storage::url(Auth::user()->image)}}" alt="">
+        @else
+                                        <img class=" rounded-circle mr-1" style="height: 30px" src="{{ asset('frontend/assets/img/nophoto.jpg') }}" alt="">
+        @endif
+        <div class="d-sm-none d-lg-inline-block">Hi, {{Auth::user()->name}}</div></a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-divider"></div>
+          <a href="{{route('profile.index')}}" class="dropdown-item">
+             Profile
+          </a>
           <a href="{{route('logout')}}" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i> Logout
           </a>

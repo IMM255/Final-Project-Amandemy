@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PengaduanExport;
 use App\Models\Complaint;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -16,11 +17,11 @@ class ReportController extends Controller
     public function index()
     {
         if((Request()->from && Request()->to)){
-
-            $from = Request()->from . '' . '00:00:00';
-            $to = Request()->to . ' ' . '23:59:59';
-
-            $pengaduans = Complaint::whereBetween('created_at',[$from, $to])->get();
+            $from = Request()->from  . ':00:00:00';
+            $to = Request()->to  . ':23:59:59';
+            $pengaduans = Complaint::whereBetween('created_at',[$from, $to])
+            ->orderBy('created_at', 'desc')
+            ->get();
         }else{
             $pengaduans = Complaint::all()->sortDesc();
         };
