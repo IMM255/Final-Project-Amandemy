@@ -64,11 +64,38 @@
                             </div>
                         </div>
                         <div class="row px-3 pt-3 border-top border-dark">
-                            <div class="mx-2">
-                                <i class="fa fa-arrow-up"></i> 30 Mendukung
-                            </div>
-                            <div class="mx-2">
-                                <i class="fa fa-arrow-down"></i> 30 Menolak
+                            <div class="d-flex">
+                                <form id="vote-form-upvote-{{ $item->id }}" action="{{ route('vote', ['complaint' => $item->id ]) }}" method="POST" class="vote-form">
+                                    @csrf
+                                    <div class="mx-2">
+                                        <button type="button" class=" btn border-none bg-transparent upvote-button" data-type="upvote" data-complaint-id="{{ $item->id }}"
+                                            {{ $item->votes->where('user_id', auth()->id())->where('type', 'upvote')->isNotEmpty() ? 'disabled' : '' }}>
+                                            @if($item->votes->where('user_id', auth()->id())->where('type', 'upvote')->isNotEmpty())
+                                                <i class='bx bxs-upvote'></i> <!-- Filled icon -->
+                                            @else
+                                                <i class='bx bx-upvote'></i> <!-- Outline icon -->
+                                            @endif
+                                            {{ $item->upvotes()->count() }}
+                                            Mendukung
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <form id="vote-form-downvote-{{ $item->id }}" action="{{ route('vote', ['complaint' => $item->id ]) }}" method="POST" class=" vote-form">
+                                    @csrf
+                                    <div class="mx-2">
+                                        <button type="button" class="btn border-none bg-transparent downvote-button" data-type="downvote" data-complaint-id="{{ $item->id }}"
+                                            {{ $item->votes->where('user_id', auth()->id())->where('type', 'downvote')->isNotEmpty() ? 'disabled' : '' }}>
+                                            @if($item->votes->where('user_id', auth()->id())->where('type', 'downvote')->isNotEmpty())
+                                                <i class='bx bxs-downvote'></i> <!-- Filled icon -->
+                                            @else
+                                                <i class='bx bx-downvote'></i> <!-- Outline icon -->
+                                            @endif
+                                            {{ $item->downvotes()->count() }}
+                                            Menolak
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -78,3 +105,6 @@
     </div>
     </div>
 @endsection
+@push('script')
+    @include('includes.user.vote')
+@endpush

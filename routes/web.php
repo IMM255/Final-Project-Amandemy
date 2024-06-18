@@ -30,6 +30,9 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/pengaduan', [HomeController::class, 'pengaduan'])->name('pengaduan');
 Route::get('/pengaduan/{id}', [HomeController::class, 'pengaduanDetail'])->name('pengaduan.detail');
 
+Route::get('/cari-pengaduan', [HomeController::class,'search'])->name('search');
+
+
 Route::middleware(['auth'])->group(function () {
 
 Route::get('/buat-pengaduan', [HomeController::class, 'buatPengaduan'])->name('buat.pengaduan');

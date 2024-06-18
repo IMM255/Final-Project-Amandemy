@@ -70,4 +70,19 @@ class HomeController extends Controller
             return redirect()->route('buat.pengaduan')->with('error', 'Pengaduan gagal dikirim');
         }
     }
+
+    public function search(Request $request)
+        {
+        $keyword = $request->input('keyword');
+
+        $data = Complaint::query()
+            ->where('title', 'LIKE', "%$keyword%")
+            ->orWhere('description', 'LIKE', "%$keyword%")
+            ->orderByDesc('created_at')
+            ->get();
+
+            $topComplaints = Complaint::orderByDesc('created_at')->take(3)->get();
+        return view('pages.guest.search',compact('data','topComplaints'));
+    }
+
 }

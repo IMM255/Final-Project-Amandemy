@@ -40,7 +40,7 @@
                                 <h6>{{$item->description}}</h6>
                             </div>
                             <div>
-                                <p>Indramayu, 25 Juni 2024</p>
+                                <p>{{$item->location}}, {{ date('M d, Y', strtotime($item->created_at)) }}</p>
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <span class="badge badge-danger rounded-pill px-2 py-1">{{$item->urgency}}</span>

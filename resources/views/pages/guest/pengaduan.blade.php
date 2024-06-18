@@ -29,14 +29,15 @@
 <div class="site-section">
     <div class="container">
         <div class="row justify-content-center mb-4">
-            <div class="input-group col-md-5">
-                <input type="text" class="form-control search-input" placeholder="Cari">
-                <div class="input-group-append">
-                    <button class="btn  search-icon border" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
+                <form class="input-group col-md-5" action="{{ route('search') }}" method="GET">
+                    @csrf
+                    <input type="text" name="keyword" class="form-control search-input" placeholder="Cari">
+                    <div class="input-group-append">
+                        <button class="btn  search-icon border" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
         </div>
         <div class="row mb-5">
             <div class="col-md-6">
@@ -106,7 +107,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-5 " >
                 <div class="row">
-                    <h4>Pengaduan teratas</h4>
+                    <h4>Pengaduan terbaru</h4>
                 </div>
                 @foreach ($data->sortByDesc('created_at')->take(3) as $index => $item)
                     <div class="row d-flex mb-1">
@@ -121,6 +122,7 @@
                             <h5>{{$item->title}}</h5>
                             <p class="small">{{ Str::limit($item->description, 50) }}</p>
                             <p class="small">{{ $item->lokasi }}, {{ date('M d, Y', strtotime($item->tgl)) }}</p>
+                            <a class="stretched-link" href="{{route('pengaduan.detail',$item->id)}}"></a>
                         </div>
                     </div>
                 @endforeach

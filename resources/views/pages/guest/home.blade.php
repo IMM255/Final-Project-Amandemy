@@ -93,7 +93,7 @@
     <div class="container">
         <div class="row justify-content-center text-center mb-3">
             <div class="col-md-5 aos-init aos-animate" data-aos="fade-up">
-                <h2 class="section-heading">Pengaduan Teratas</h2>
+                <h2 class="section-heading">Pengaduan Terbaru</h2>
             </div>
         </div>
 
@@ -105,7 +105,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h5 class="card-title">{{$item->title}}</h5>
-                            <small class="text-muted">Indramayu, 25 Juni 2024</small>
+                            <small class="text-muted">{{$item->location}}, {{ date('d-M-Y', strtotime($item->created_at))}}</small>
                         </div>
                         <p class="card-text">{{$item->description}}</p>
                         <div class="d-flex justify-content-between">
