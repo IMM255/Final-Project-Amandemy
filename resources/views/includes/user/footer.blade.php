@@ -15,7 +15,6 @@
             </div>
 
             <div class="col-4">
-                <h6>Indramayu</h6>
                 <h6>Indonesia</h6>
                 <h6>PeMas@gmail.com</h6>
             </div>

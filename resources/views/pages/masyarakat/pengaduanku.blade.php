@@ -37,7 +37,7 @@
                             <div class="col-6 d-flex flex-column justify-content-between">
                                 <div>
                                     <div class="row d-flex justify-content-between mb-4">
-                                        <h1 class="col">Polusi</h1>
+                                        <h1 class="col">{{$item->title}}</h1>
 
                                         <form action="{{ route('complaint.delete',['complaint' => $item->id ]) }}" method="POST">
                                             @method('DELETE')
@@ -49,11 +49,10 @@
                                     <h6>{{ $item->description }}</h6>
                                 </div>
                                 <div>
-                                    <p>{{ $item->lokasi }}, {{ date('M d, Y', strtotime($item->created_at)) }}</p>
+                                    <p>{{ $item->location }}, {{ date('M d, Y', strtotime($item->created_at)) }}</p>
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <span class="badge badge-danger rounded-pill px-2 py-1">Penting dan
-                                                Mendesak</span>
+                                            <span class="badge badge-danger rounded-pill px-2 py-1">{{$item->urgency}}</span>
                                             <span
                                                 class="badge badge-success rounded-pill px-2 py-1">{{ $item->category->name_category }}</span>
                                         </div>
