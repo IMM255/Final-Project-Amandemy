@@ -23,7 +23,23 @@
                             <li class="{{ Request::is('contact') ? 'active' : '' }}">
                                 <a href="{{route('buat.pengaduan')}}" class="nav-link">Buat Pengaduan</a>
                             </li>
-                            <li class="nav-item dropdown">
+
+                            {{-- mobile --}}
+                            @if(Auth::user()->isAdmin())
+                            <li class="d-lg-none"><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
+                            @endif
+                            <li class="d-lg-none"><a class="dropdown-item" href="{{route('profile.index')}}">Profile</a></li>
+                            <li class="d-lg-none"><a class="dropdown-item" href="{{route('pengaduanku')}}">Pengaduan Saya</a>
+                            </li>
+                            <li class="d-lg-none">
+                                <a class="dropdown-item" href="{{ route('logout') }}">
+                                    Logout
+                                </a>
+                            </li>
+
+                            {{-- end mobile --}}
+
+                            <li class="nav-item dropdown d-sm-none d-lg-inline-block">
 
                                 <a id="btn-dropdown" class="nav-link" href="#" role="button">
                                     @if(Auth::user()->image)
@@ -47,6 +63,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                         @else
                             <li>
                                 <a href="{{ route('login') }}" class="nav-link btn btn-outline-danger">Log In</a>
