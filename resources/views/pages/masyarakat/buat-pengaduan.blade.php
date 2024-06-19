@@ -32,6 +32,16 @@
             <div class="card" style="background: #e4e4e4">
                 <form action="{{ route('pengaduan.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                    @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                    @endif
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-lg-12">

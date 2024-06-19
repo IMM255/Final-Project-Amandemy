@@ -94,7 +94,7 @@
 
                                             </td>
                                             <td>
-                                                <form action="" method="post" id="formDelete">
+                                                <form action="{{route('complaint.delete',$pengaduan->id)}}" method="post" id="formDelete">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{ route('complaint.show', $pengaduan->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>

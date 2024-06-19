@@ -20,9 +20,6 @@ class ComplaintController extends Controller
         } else {
             $pengaduans = Complaint::orderByDesc('created_at')->get();
         }
-
-
-
         return view('pages.admin.pengaduan.index', compact('pengaduans'));
     }
 

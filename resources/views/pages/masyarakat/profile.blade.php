@@ -31,6 +31,16 @@
             <div class="col-md-12 p-4">
                 <div class="card p-4" style="background: #e4e4e4">
                     <form action="{{ route('profile.update',['profile' => $user->id]) }}" method="post" enctype="multipart/form-data">
+                        @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                        @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                        @endif
                         @method('PUT')
                         @csrf
                         <input type="hidden" name="id" id="id" value="{{ $user->id }}">
@@ -116,7 +126,7 @@
                             <div class="col-md-8">
                                 <div class="row">
                                     <div class="form-group col-12">
-                                        <label>Password</label>
+                                        <label>Password Baru</label>
                                         <input type="password" name="password"
                                             class="form-control border border-dark rounded-lg @error('password') ? is-invalid @enderror"
                                             value="">
@@ -127,7 +137,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-12">
-                                        <label>Confirm Password</label>
+                                        <label>Konfirmai Password Baru</label>
                                         <input type="password" name="password_confirmation"
                                             class="form-control border border-dark rounded-lg" value="">
                                     </div>

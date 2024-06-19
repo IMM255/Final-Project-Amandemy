@@ -12,6 +12,11 @@
             <div class="card-body">
               <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
                 @csrf
+                @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input id="email" type="email" class="form-control @error('email') ? is-invalid @enderror" name="email" tabindex="1" value="{{ old('email') }}" required autofocus />
@@ -27,6 +32,11 @@
                     <label for="password" class="control-label">Password</label>
                   </div>
                   <input id="password" type="password" class="form-control" name="password" tabindex="2" required />
+                  @error('password')
+                  <div class="invalid-feedback">
+                      {{ $message }}
+                  </div>
+                    @enderror
                   <div class="float-right my-3">
                     <a href="#" class="text-small" >
                       Forgot Password?

@@ -67,11 +67,11 @@ class ProfileController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route('profile.index')->with('success', 'Data berhasil diupdate');
+            return redirect()->route('profile.index')->with('success', 'Data berhasil diperbarui');
         } catch (\Throwable $th) {
             // throw $th;
             DB::rollback();
-            return redirect()->route('profile.index')->with('error', 'Data gagal diupdate');
+            return redirect()->route('profile.index')->with('error', 'Data gagal diperbarui');
         }
     }
 }

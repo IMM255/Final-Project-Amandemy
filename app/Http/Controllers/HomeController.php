@@ -63,11 +63,11 @@ class HomeController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route('buat.pengaduan')->with('success', 'Pengaduan berhasil dikirim');
+            return redirect()->route('buat.pengaduan')->with('success', 'Pengaduan berhasil dibuat');
         } catch (\Throwable $th) {
             // throw $th;
             DB::rollback();
-            return redirect()->route('buat.pengaduan')->with('error', 'Pengaduan gagal dikirim');
+            return redirect()->route('buat.pengaduan')->with('error', 'Pengaduan gagal dibuat');
         }
     }
 

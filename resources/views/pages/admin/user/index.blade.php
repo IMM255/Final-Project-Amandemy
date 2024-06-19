@@ -2,7 +2,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Masyarakat</h1>
+            <h1>User</h1>
         </div>
 
         {{-- <x-Admin.Alert/> --}}
@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h4>Data Masyarakat</h4>
+                        <h4>Data User</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

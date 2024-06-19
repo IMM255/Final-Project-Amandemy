@@ -170,7 +170,8 @@
 
         <div class="row justify-content-center">
             <div class="col-md-8 p-5" style="background: #e7e7e7">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="https://formsubmit.co/muhamadimamarif225@gmail.com" method="post">
+                    <input type="hidden" name="_url" value="https://muhamadimamarif225@gmail.com/">
                     <div class="row justify-content-center">
                         <div class="col-md-6 form-group">
                             <label for="name">Name</label>
@@ -199,7 +200,6 @@
 
 
                         <div class="col-md-12 mb-3">
-                            <div class="loading">Loading</div>
                             <div class="error-message"></div>
                             <div class="sent-message">Your message has been sent. Thank you!</div>
                         </div>
