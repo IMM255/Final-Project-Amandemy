@@ -62,6 +62,22 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($item->response)
+                                    <div class="row">
+                                        <div class="col-md-4  ">
+                                            <h5>Ditanggapi:</h5>
+                                            <p>{{ $item->response->response_content }}</p>
+                                        </div>
+                                        <div class="col-md-4  ">
+                                            <h5>Tanggal Ditanggapi:</h5>
+                                            <p>{{ $item->response->created_at }}</p>
+                                        </div>
+                                        <div class="col-md-4  ">
+                                            <h5>Ditanggapi oleh:</h5>
+                                            <p>{{ $item->response->user->name }}</p>
+                                        </div>
+                                    </div>
+                        @endif
                         <div class="row px-3 pt-3 border-top border-dark">
                             <div class="d-flex">
                                 <form id="vote-form-upvote-{{ $item->id }}" action="{{ route('vote', ['complaint' => $item->id ]) }}" method="POST" class="vote-form">
